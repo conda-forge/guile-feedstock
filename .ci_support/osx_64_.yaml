@@ -3,7 +3,7 @@ MACOSX_DEPLOYMENT_TARGET:
 c_compiler:
 - clang
 c_compiler_version:
-- '4'
+- '11'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
@@ -11,13 +11,11 @@ channel_targets:
 gmp:
 - '6'
 libffi:
-- '3.2'
+- '3.3'
 libiconv:
-- '1.15'
+- '1.16'
 macos_machine:
 - x86_64-apple-darwin13.4.0
-macos_min_version:
-- '10.9'
 pin_run_as_build:
   gmp:
     max_pin: x
@@ -29,3 +27,5 @@ pin_run_as_build:
     max_pin: x
 readline:
 - '8.0'
+target_platform:
+- osx-64
