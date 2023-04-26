@@ -1,7 +1,7 @@
 c_compiler:
 - gcc
 c_compiler_version:
-- '9'
+- '12'
 cdt_name:
 - cos6
 channel_sources:
@@ -15,16 +15,7 @@ gmp:
 libffi:
 - '3.4'
 libiconv:
-- '1.16'
-pin_run_as_build:
-  gmp:
-    max_pin: x
-  libffi:
-    max_pin: x.x
-  libiconv:
-    max_pin: x.x
-  readline:
-    max_pin: x
+- '1'
 readline:
 - '8'
 target_platform:
