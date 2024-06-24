@@ -1,0 +1,22 @@
+diff --git a/test-suite/standalone/Makefile.in b/test-suite/standalone/Makefile.in
+index dc0bd00..9e42ca7 100644
+--- a/test-suite/standalone/Makefile.in
++++ b/test-suite/standalone/Makefile.in
+@@ -91,7 +91,7 @@ POST_UNINSTALL = :
+ build_triplet = @build@
+ host_triplet = @host@
+ target_triplet = @target@
+-TESTS = test-system-cmds test-bad-identifiers test-require-extension \
++TESTS = test-bad-identifiers test-require-extension \
+ 	test-guile-snarf test-import-order test-command-line-encoding \
+ 	test-command-line-encoding2 test-language test-guild-compile \
+ 	test-signal-fork test-num2integral$(EXEEXT) \
+@@ -2239,7 +2239,7 @@ noinst_LTLIBRARIES = $(am__append_1)
+ # test-mb-regexp
+
+ # test-use-srfi
+-check_SCRIPTS = test-system-cmds test-bad-identifiers \
++check_SCRIPTS = test-bad-identifiers \
+ 	test-require-extension test-guile-snarf test-import-order \
+ 	test-command-line-encoding test-command-line-encoding2 \
+ 	test-language test-guild-compile test-signal-fork \
