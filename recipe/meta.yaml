@@ -19,6 +19,7 @@ requirements:
     - {{ stdlib('c') }}
     - make                # [unix]
     - gettext-tools
+    - pkg-config
     - sed
   host:
     - libunistring
@@ -28,8 +29,7 @@ requirements:
     - libiconv
     - readline
     - libtool
-    - pkg-config
-    - libintl-devel
+    - libintl-devel      # [not linux]
 
 test:
   commands:
