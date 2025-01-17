@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://ftp.gnu.org/gnu/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: bd7168517fd526333446d4f7ab816527925634094fbd37322e17e2b8d8e76388
+  sha256: 2dbdbc97598b2faf31013564efb48e4fed44131d28e996c26abe8a5b23b56c2a
 
 build:
   number: 0
