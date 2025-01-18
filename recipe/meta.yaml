@@ -19,20 +19,26 @@ requirements:
     - {{ stdlib('c') }}
     - autoconf
     - automake
-    - make
+    - bdw-gc               # [build_platform != target_platform]
     - gettext-tools
+    - gmp                  # [build_platform != target_platform]
+    - libffi               # [build_platform != target_platform]
+    - libiconv             # [build_platform != target_platform]
+    - libintl-devel        # [build_platform != target_platform]
+    - libunistring         # [build_platform != target_platform]
+    - make
     - pkg-config
+    - readline             # [build_platform != target_platform]
     - sed
   host:
-    - libtool
-    - libunistring
-    - libffi
     - bdw-gc
     - gmp
+    - libffi
     - libiconv
-    - readline
-    - libtool
     - libintl-devel      # [not linux]
+    - libtool
+    - libunistring
+    - readline
 
 test:
   commands:
