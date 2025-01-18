@@ -17,11 +17,14 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
-    - make                # [unix]
+    - autoconf
+    - automake
+    - make
     - gettext-tools
     - pkg-config
     - sed
   host:
+    - libtool
     - libunistring
     - libffi
     - bdw-gc
