@@ -13,7 +13,7 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
     CC=${CC//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}
     LD="${LD//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}"
 
-    ./configure --prefix="${BUILD_PREFIX}"
+    ./configure --host=${BUILD} --prefix="${BUILD_PREFIX}"
     make -j ${CPU_COUNT}
     make install
 
