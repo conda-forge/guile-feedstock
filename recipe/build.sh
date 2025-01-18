@@ -16,7 +16,7 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
     LD="${LD//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}"
 
     ./configure --host=${BUILD} --prefix="${BUILD_PREFIX}"
-    make -j ${CPU_COUNT}
+    make --trace -j ${CPU_COUNT}
     make install
 
     LDFLAGS="${CROSS_LDFLAGS}"
