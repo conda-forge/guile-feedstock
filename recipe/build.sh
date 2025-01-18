@@ -13,7 +13,6 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
     CC=${CC//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}
     LD="${LD//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}"
 
-    ./autogen.sh
     ./configure --prefix="${BUILD_PREFIX}"
     make -j ${CPU_COUNT}
     make install
@@ -25,7 +24,6 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
     make_args="GUILE_FOR_BUILD=${BUILD_PREFIX}/bin/guile"
 fi
 
-./autogen.sh
 ./configure --prefix="${PREFIX}"
 make -j ${CPU_COUNT}
 # make -j ${CPU_COUNT} check
