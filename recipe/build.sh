@@ -2,8 +2,6 @@
 
 set -o xtrace -o nounset -o pipefail -o errexit
 
-make_args=""
-
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
     CROSS_LDFLAGS=${LDFLAGS}
     CROSS_CFLAGS=${CFLAGS}
@@ -26,11 +24,9 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
     CPPFLAGS="${CROSS_CPPFLAGS}"
     CC=${CROSS_CC}
     LD=${CROSS_LD}
-
-    make_args="GUILE_FOR_BUILD=${BUILD_PREFIX}/bin/guile"
 fi
 
 ./configure --prefix="${PREFIX}"
-make -j ${CPU_COUNT} ${make_args}
-# make -j ${CPU_COUNT} check
+make --trace -j ${CPU_COUNT}
+# make --trace -j ${CPU_COUNT} check
 make install
