@@ -7,11 +7,13 @@ make_args=""
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
     CROSS_LDFLAGS=${LDFLAGS}
     CROSS_CFLAGS=${CFLAGS}
+    CROSS_CPPFLAGS=${CPPFLAGS}
     CROSS_CC="${CC}"
     CROSS_LD="${LD}"
 
     LDFLAGS=${LDFLAGS//${PREFIX}/${BUILD_PREFIX}}
     CFLAGS=${CFLAGS//${PREFIX}/${BUILD_PREFIX}}
+    CPPFLAGS=${CPPFLAGS//${PREFIX}/${BUILD_PREFIX}}
     CC=${CC//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}
     LD="${LD//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}"
 
@@ -21,6 +23,7 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
 
     LDFLAGS="${CROSS_LDFLAGS}"
     CFLAGS="${CROSS_CFLAGS}"
+    CPPFLAGS="${CROSS_CPPFLAGS}"
     CC=${CROSS_CC}
     LD=${CROSS_LD}
 
@@ -28,6 +31,6 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
 fi
 
 ./configure --prefix="${PREFIX}"
-make -j ${CPU_COUNT}
+make -j ${CPU_COUNT} ${make_args}
 # make -j ${CPU_COUNT} check
 make install
