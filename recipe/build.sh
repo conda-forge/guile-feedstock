@@ -17,7 +17,7 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
     CC=${CC//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}
     LD="${LD//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}"
 
-    ./configure --host=${BUILD} --prefix="${BUILD_PREFIX}"
+    ./configure --host=${BUILD} --prefix="${BUILD_PREFIX}" --with-bdw-gc=${BUILD_PREFIX}/lib/pkgconfig/bdw-gc.pc
     make --trace -j ${CPU_COUNT}
     make install
 
