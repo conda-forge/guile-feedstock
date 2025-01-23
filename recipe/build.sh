@@ -26,7 +26,7 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
     LD=${CROSS_LD}
 fi
 
-export CPPFLAGS="${CPPFLAGS} -DHAVE_GC_IS_HEAP_PTR"
+export CPPFLAGS="${CPPFLAGS} -DHAVE_GC_IS_HEAP_PTR -DHAVE_GC_MOVE_DISAPPEARING_LINK"
 ./configure --prefix="${PREFIX}"
 make --trace -j ${CPU_COUNT}
 # make --trace -j ${CPU_COUNT} check
