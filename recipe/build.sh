@@ -27,6 +27,7 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
 fi
 
 ./configure --prefix="${PREFIX}"
+export CFLAGS="${CFLAGS} -DHAVE_GC_IS_HEAP_PTR"
 make --trace -j ${CPU_COUNT}
 # make --trace -j ${CPU_COUNT} check
 make install
