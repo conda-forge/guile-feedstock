@@ -33,6 +33,7 @@ requirements:
   host:
     - bdw-gc
     - gmp
+    - libatomic_ops
     - libffi
     - libiconv
     - libintl-devel      # [not linux]
