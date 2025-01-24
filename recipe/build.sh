@@ -30,5 +30,14 @@ fi
 export CPPFLAGS="${CPPFLAGS} -DHAVE_GC_IS_HEAP_PTR -DHAVE_GC_MOVE_DISAPPEARING_LINK"
 ./configure --prefix="${PREFIX}"
 make --trace -j ${CPU_COUNT}
-# make --trace -j ${CPU_COUNT} check
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR:-}" != "" ]]; then
+    # Skip some tests that don't work in CI
+    sed -i '/tests\/00-socket.test/d' test-suite/Makefile
+    sed -i '/tests\/filesys.test/d' test-suite/Makefile
+    sed -i '/tests\/foreign.test/d' test-suite/Makefile
+    sed -i '/tests\/ports.test/d' test-suite/Makefile
+    sed -i '/tests\/posix.test/d' test-suite/Makefile
+    sed -i '/tests\/suspendable-ports.test/d' test-suite/Makefile
+    make --trace -j ${CPU_COUNT} check
+fi
 make install
