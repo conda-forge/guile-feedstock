@@ -35,7 +35,6 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR:
     sed -i '/tests\/00-socket.test/d' test-suite/Makefile
     sed -i '/tests\/filesys.test/d' test-suite/Makefile
     sed -i '/tests\/foreign.test/d' test-suite/Makefile
-    sed -i '/tests\/foreign-object-c.test/d' test-suite/Makefile
     sed -i '/tests\/ports.test/d' test-suite/Makefile
     sed -i '/tests\/posix.test/d' test-suite/Makefile
     sed -i '/tests\/suspendable-ports.test/d' test-suite/Makefile

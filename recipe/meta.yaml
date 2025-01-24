@@ -24,7 +24,7 @@ requirements:
     - gmp                  # [build_platform != target_platform]
     - libffi               # [build_platform != target_platform]
     - libiconv             # [build_platform != target_platform]
-    - libintl-devel        # [build_platform != target_platform]
+    - libintl-devel        # [build_platform != target_platform and not linux]
     - libunistring         # [build_platform != target_platform]
     - make
     - pkg-config
