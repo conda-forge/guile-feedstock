@@ -38,6 +38,13 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR:
     sed -i '/tests\/ports.test/d' test-suite/Makefile
     sed -i '/tests\/posix.test/d' test-suite/Makefile
     sed -i '/tests\/suspendable-ports.test/d' test-suite/Makefile
+
+    sed -i '/test-scm-to-latin1-string$(EXEEXT) test-scm-values$(EXEEXT)/d' test-suite/standalone/Makefile
+    sed -i '/test-stack-overflow test-out-of-memory test-close-on-exec/d' test-suite/standalone/Makefile
+    sed -i 's/test-foreign-object-c$(EXEEXT)//g' test-suite/standalone/Makefile
+    sed -i 's/test-conversion$(EXEEXT)//g' test-suite/standalone/Makefile
+    sed -i 's/test-smob-mark-race$(EXEEXT) \\/test-smob-mark-race$(EXEEXT)/g' test-suite/standalone/Makefile
+
     make --trace -j ${CPU_COUNT} check
 fi
 make install

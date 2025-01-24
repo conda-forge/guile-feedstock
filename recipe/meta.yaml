@@ -39,6 +39,8 @@ requirements:
     - libintl-devel        # [osx]
     - libtool
     - libunistring
+    - libxcrypt            # [linux]
+    - ncurses
     - readline
 
 test:
