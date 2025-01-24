@@ -18,6 +18,7 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
     ./configure --host=${BUILD} --prefix="${BUILD_PREFIX}" --with-bdw-gc=${BUILD_PREFIX}/lib/pkgconfig/bdw-gc.pc
     make --trace -j ${CPU_COUNT}
     make install
+    make clean
 
     LDFLAGS="${CROSS_LDFLAGS}"
     CFLAGS="${CROSS_CFLAGS}"
