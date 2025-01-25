@@ -193,4 +193,5 @@ Feedstock Maintainers
 =====================
 
 * [@ChristopherHogan](https://github.com/ChristopherHogan/)
+* [@danielnachun](https://github.com/danielnachun/)
 
