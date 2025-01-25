@@ -22,6 +22,8 @@ libiconv:
 - '1'
 macos_machine:
 - x86_64-apple-darwin13.4.0
+ncurses:
+- '6'
 readline:
 - '8'
 target_platform:
