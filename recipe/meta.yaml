@@ -1,5 +1,5 @@
 {% set name = "guile" %}
-{% set version = "2.2.4" %}
+{% set version = "3.0.10" %}
 
 package:
   name: {{ name }}
@@ -7,38 +7,41 @@ package:
 
 source:
   url: https://ftp.gnu.org/gnu/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 33b904c0bf4e48e156f3fb1d0e6b0392033bd610c6c9d9a0410c6e0ea96a3e5c
-  patches:
-    - skip_posix_crypt_test.patch  # [linux]
+  sha256: 2dbdbc97598b2faf31013564efb48e4fed44131d28e996c26abe8a5b23b56c2a
 
 build:
-  number: 3
+  number: 0
   skip: True  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - make                # [unix]
-  host:
-    - sed  # [osx]
-    - libunistring
-    - libffi
-    - bdw-gc
-    - gmp
-    - libiconv
-    - readline
-    - libtool
+    - {{ stdlib('c') }}
+    - autoconf
+    - automake
+    - bdw-gc               # [build_platform != target_platform]
+    - gettext-tools
+    - gmp                  # [build_platform != target_platform]
+    - libffi               # [build_platform != target_platform]
+    - libiconv             # [build_platform != target_platform]
+    - libintl-devel        # [build_platform != target_platform and not linux]
+    - libunistring         # [build_platform != target_platform]
+    - make
     - pkg-config
-    - gettext
-  run:
-    - libunistring
-    - libtool
-    - libffi
+    - readline             # [build_platform != target_platform]
+    - sed
+  host:
     - bdw-gc
     - gmp
+    - libatomic_ops
+    - libffi
     - libiconv
+    - libintl-devel        # [osx]
+    - libtool
+    - libunistring
+    - libxcrypt            # [linux]
+    - ncurses
     - readline
-    - gettext
 
 test:
   commands:
@@ -48,10 +51,10 @@ about:
   home: https://www.gnu.org/software/guile
   license: LGPL-3.0-or-later
   license_file: LICENSE
-  license_family: LGPL
   summary: 'The GNU C implementation of the Scheme programming language'
-  doc_url: https://www.gnu.org/software/guile/manual/ 
+  doc_url: https://www.gnu.org/software/guile/manual/
 
 extra:
   recipe-maintainers:
+    - danielnachun
     - ChristopherHogan
