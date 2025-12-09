@@ -42,7 +42,7 @@ requirements:
     - libxcrypt            # [linux]
     - libintl-devel        # [osx]
 
-test:
+tests:
   command:
     - guile -v
 
