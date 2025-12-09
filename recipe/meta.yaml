@@ -42,8 +42,8 @@ requirements:
     - libxcrypt            # [linux]
     - libintl-devel        # [osx]
 
-tests:
-  command:
+test:
+  commands:
     - guile -v
 
 about:
@@ -51,7 +51,7 @@ about:
   license_file: LICENSE
   summary: The GNU C implementation of the Scheme programming language
   home: https://www.gnu.org/software/guile
-  doc_rul: https://www.gnu.org/software/guile/manual/
+  doc_url: https://www.gnu.org/software/guile/manual/
 
 extra:
   recipe-maintainers:
