@@ -19,8 +19,8 @@ requirements:
   build:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
-    - autoconf <2.72
-    - automake
+    - autoconf
+    - automake <1.17
     - gettext-tools
     - make
     - pkg-config
