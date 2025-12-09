@@ -19,7 +19,7 @@ requirements:
   build:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
-    - autoconf
+    - autoconf <2.72
     - automake
     - gettext-tools
     - make
