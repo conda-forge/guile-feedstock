@@ -1,0 +1,59 @@
+{% set version = "3.0.10" %}
+
+package:
+  name: guile
+  version: {{ version }}
+
+source:
+  url: https://ftp.gnu.org/gnu/guile/guile-{{ version }}.tar.gz
+  sha256: 2dbdbc97598b2faf31013564efb48e4fed44131d28e996c26abe8a5b23b56c2a
+
+build:
+  number: 1
+  skip: True  # [win]
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ stdlib('c') }}
+    - autoconf
+    - automake <1.17
+    - gettext-tools
+    - make
+    - pkg-config
+    - sed
+    - bdw-gc                # [build_platform != target_platform]
+    - gmp                   # [build_platform != target_platform]
+    - libffi                # [build_platform != target_platform]
+    - libiconv              # [build_platform != target_platform]
+    - libunistring          # [build_platform != target_platform]
+    - readline              # [build_platform != target_platform]
+    - libintl-devel         # [build_platform != target_platform and osx]
+  host:
+    - bdw-gc
+    - gmp
+    - libatomic_ops
+    - libffi
+    - libiconv
+    - libtool
+    - libunistring
+    - ncurses
+    - readline
+    - libxcrypt            # [linux]
+    - libintl-devel        # [osx]
+
+test:
+  - command:
+      - guile -v
+
+about:
+  license: LGPL-3.0-or-later
+  license_file: LICENSE
+  summary: The GNU C implementation of the Scheme programming language
+  home: https://www.gnu.org/software/guile
+  doc_rul: https://www.gnu.org/software/guile/manual/
+
+extra:
+  recipe-maintainers:
+    - danielnachun
+    - ChristopherHogan
