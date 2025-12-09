@@ -9,8 +9,6 @@ Package license: LGPL-3.0-or-later
 
 Summary: The GNU C implementation of the Scheme programming language
 
-Documentation: https://www.gnu.org/software/guile/manual/
-
 Current build status
 ====================
 
